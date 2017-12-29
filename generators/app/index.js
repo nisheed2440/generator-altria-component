@@ -2,32 +2,29 @@
 const Generator = require('yeoman-generator');
 const chalk = require('chalk');
 const yosay = require('yosay');
+const figlet = require('figlet');
 // Const lodash = require('lodash');
 
 module.exports = class extends Generator {
   prompting() {
-    // Have Yeoman greet the user.
-    this.log(
-      yosay(
-        'Welcome to the super ' + chalk.red('generator-altria-component') + ' generator!'
-      )
-    );
+    // Greet the user.
+    this.log(chalk.green(figlet.textSync('Altria')));
+    this.log(chalk.yellow('Altria Component Generator'));
 
-    const prompts = [
-      {
+    const prompts = [{
         type: 'input',
         name: 'compName',
-        message: 'your component name'
+        message: 'Component name'
       },
       {
         type: 'input',
         name: 'compDesc',
-        message: 'enter description of the component'
+        message: 'Component Description'
       },
       {
         type: 'confirm',
         name: 'isResponsive',
-        message: 'Is the component responsive?',
+        message: 'Is Responsive?',
         default: true
       }
     ];
@@ -67,6 +64,7 @@ module.exports = class extends Generator {
     this.installDependencies();
   }
 };
+
 function populatingData(scope, fileExt) {
   console.log('extension' + fileExt);
   scope.fs.copyTpl(
