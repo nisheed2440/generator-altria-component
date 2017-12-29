@@ -36,7 +36,7 @@ module.exports = class extends Generator {
   }
 
   writing() {
-    console.log('in writing');
+
     populatingData(this, 'json');
     populatingData(this, 'hbs');
     populatingData(this, 'scss');
@@ -66,7 +66,6 @@ module.exports = class extends Generator {
 };
 
 function populatingData(scope, fileExt) {
-  console.log('extension' + fileExt);
   scope.fs.copyTpl(
     scope.templatePath('component.' + fileExt),
     scope.destinationPath(
