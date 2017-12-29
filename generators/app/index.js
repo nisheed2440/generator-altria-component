@@ -3,7 +3,7 @@ const Generator = require('yeoman-generator');
 const chalk = require('chalk');
 const yosay = require('yosay');
 const figlet = require('figlet');
-// Const lodash = require('lodash');
+const lodash = require('lodash');
 
 module.exports = class extends Generator {
   prompting() {
@@ -32,31 +32,41 @@ module.exports = class extends Generator {
     return this.prompt(prompts).then(props => {
       // To access props later use this.props.someAnswer;
       this.props = props;
+      this.props.compName = lodash.camelCase(props.compName);
+      this.props.compfileName = lodash.kebabCase(props.compName);
     });
   }
 
+  _populatingData( fileExt ) {
+    this.fs.copyTpl(
+      this.templatePath('component.' + fileExt),
+      this.destinationPath(
+        this.props.compfileName + '/' + this.props.compfileName + '.' + fileExt
+      ),
+      this.props
+    );
+  }
   writing() {
-
-    populatingData(this, 'json');
-    populatingData(this, 'hbs');
-    populatingData(this, 'scss');
-    populatingData(this, 'js');
-    populatingData(this, 'spec.js');
+    this._populatingData('json');
+    this._populatingData('hbs');
+    this._populatingData('scss');
+    this._populatingData('js');
+    this._populatingData('spec.js');
     if (this.props.isResponsive) {
       this.fs.copy(
         this.templatePath('sass/'),
-        this.destinationPath(this.props.compName + '/sass/'),
+        this.destinationPath(this.props.compfileName + '/sass/'),
         this.props
       );
     }
     this.fs.copy(
       this.templatePath('context/'),
-      this.destinationPath(this.props.compName + '/context/'),
+      this.destinationPath(this.props.compfileName + '/context/'),
       this.props
     );
     this.fs.copy(
       this.templatePath('README.md'),
-      this.destinationPath(this.props.compName + 'README.md')
+      this.destinationPath(this.props.compfileName + 'README.md')
     );
   }
 
@@ -64,13 +74,3 @@ module.exports = class extends Generator {
     this.installDependencies();
   }
 };
-
-function populatingData(scope, fileExt) {
-  scope.fs.copyTpl(
-    scope.templatePath('component.' + fileExt),
-    scope.destinationPath(
-      scope.props.compName + '/' + scope.props.compName + '.' + fileExt
-    ),
-    scope.props
-  );
-}
