@@ -2,20 +2,35 @@
 const Generator = require('yeoman-generator');
 const chalk = require('chalk');
 const yosay = require('yosay');
+// Const lodash = require('lodash');
 
 module.exports = class extends Generator {
   prompting() {
     // Have Yeoman greet the user.
-    this.log(yosay(
-      'Welcome to the super ' + chalk.red('generator-altria-component') + ' generator!'
-    ));
+    this.log(
+      yosay(
+        'Welcome to the super ' + chalk.red('generator-altria-component') + ' generator!'
+      )
+    );
 
-    const prompts = [{
-      type: 'confirm',
-      name: 'someAnswer',
-      message: 'Would you like to enable this option?',
-      default: true
-    }];
+    const prompts = [
+      {
+        type: 'input',
+        name: 'compName',
+        message: 'your component name'
+      },
+      {
+        type: 'input',
+        name: 'compDesc',
+        message: 'enter description of the component'
+      },
+      {
+        type: 'confirm',
+        name: 'isResponsive',
+        message: 'Is the component responsive?',
+        default: true
+      }
+    ];
 
     return this.prompt(prompts).then(props => {
       // To access props later use this.props.someAnswer;
@@ -24,9 +39,27 @@ module.exports = class extends Generator {
   }
 
   writing() {
+    console.log('in writing');
+    populatingData(this, 'json');
+    populatingData(this, 'hbs');
+    populatingData(this, 'scss');
+    populatingData(this, 'js');
+    populatingData(this, 'spec.js');
+    if (this.props.isResponsive) {
+      this.fs.copy(
+        this.templatePath('sass/'),
+        this.destinationPath(this.props.compName + '/sass/'),
+        this.props
+      );
+    }
     this.fs.copy(
-      this.templatePath('dummyfile.txt'),
-      this.destinationPath('dummyfile.txt')
+      this.templatePath('context/'),
+      this.destinationPath(this.props.compName + '/context/'),
+      this.props
+    );
+    this.fs.copy(
+      this.templatePath('README.md'),
+      this.destinationPath(this.props.compName + 'README.md')
     );
   }
 
@@ -34,3 +67,13 @@ module.exports = class extends Generator {
     this.installDependencies();
   }
 };
+function populatingData(scope, fileExt) {
+  console.log('extension' + fileExt);
+  scope.fs.copyTpl(
+    scope.templatePath('component.' + fileExt),
+    scope.destinationPath(
+      scope.props.compName + '/' + scope.props.compName + '.' + fileExt
+    ),
+    scope.props
+  );
+}

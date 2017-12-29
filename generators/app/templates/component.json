@@ -1,4 +1,4 @@
 {
-  "name": "<component-name>",
-  "description": "<component-description>"
+  "name": "<%= compName %>",
+  "description": "<%= compDesc %>"
 }

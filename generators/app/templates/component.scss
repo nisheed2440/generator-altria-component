@@ -1,2 +1,13 @@
 // <component-name> component scss imports and overides if any
-
+<% if( isResponsive ){ %>
+  @import 'default';
+  @media (min-width: $screen-sm-min) {
+     @import 'tablet-p';
+  }
+  @media (min-width: $screen-md-min) {
+     @import 'tablet-l';
+  }
+  @media (min-width: $screen-lg-min) {
+     @import 'desktop';
+  }
+<% } %>
