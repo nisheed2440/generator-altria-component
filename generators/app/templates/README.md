@@ -1,4 +1,4 @@
-<component-name>
+<%= compNamePretty %>
 ======
 
-<component-description>
+<%= compDesc %>

@@ -1,4 +1,4 @@
 {
-  "name": "<%= compName %>",
+  "name": "<%= compNamePretty %>",
   "description": "<%= compDesc %>"
 }

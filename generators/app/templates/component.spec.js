@@ -1,7 +1,7 @@
-// <component-name> spec file
+// <%= compNamePretty %> spec file
 var expect = chai.expect;
 
-describe('<component-name> Component', function () {
+describe('<%= compNamePretty %> Component', function () {
 
   beforeEach(function () {});
 
