@@ -5,5 +5,8 @@
       "authorEmail": "njagadish3@sapient.com",
       "authorUrl": ""
     }
+  },
+  "generator-altria-component": {
+    "destinationPath": "app/template"
   }
 }
