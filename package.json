@@ -8,7 +8,9 @@
     "email": "njagadish3@sapient.com",
     "url": ""
   },
-  "files": ["generators"],
+  "files": [
+    "generators"
+  ],
   "main": "generators/index.js",
   "keywords": [
     "generator",
@@ -32,9 +34,11 @@
     "jest-cli": "^21.0.0"
   },
   "dependencies": {
+    "ascii-tree": "^0.3.0",
     "chalk": "^2.1.0",
-    "lodash": "^4.17.4",
+    "ejs": "^2.5.7",
     "figlet": "^1.2.0",
+    "lodash": "^4.17.4",
     "yeoman-generator": "^2.0.1",
     "yosay": "^2.0.1"
   },
@@ -48,11 +52,20 @@
     "test": "jest"
   },
   "lint-staged": {
-    "*.js": ["eslint --fix", "git add"],
-    "*.json": ["prettier --write", "git add"]
+    "*.js": [
+      "eslint --fix",
+      "git add"
+    ],
+    "*.json": [
+      "prettier --write",
+      "git add"
+    ]
   },
   "eslintConfig": {
-    "extends": ["xo", "prettier"],
+    "extends": [
+      "xo",
+      "prettier"
+    ],
     "env": {
       "jest": true,
       "node": true
@@ -66,7 +79,9 @@
         }
       ]
     },
-    "plugins": ["prettier"]
+    "plugins": [
+      "prettier"
+    ]
   },
   "repository": "nisheed2440/generator-altria-component-generator",
   "license": "Apache-2.0"

@@ -1,6 +1,12 @@
 {
   "rules": {
-    "linebreak-style": 0,
-    "esversion": 6
+    "linebreak-style": 0
+  },
+  "parserOptions": {
+    "ecmaVersion": 6,
+    "sourceType": "module"
+  },
+  "env": {
+    "es6": true
   }
 }

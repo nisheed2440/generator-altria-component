@@ -1,1 +1,1 @@
-// <component-name> component JS goes here
+// <%= compNamePretty %> component JS goes here
