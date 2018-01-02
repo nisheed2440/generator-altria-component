@@ -98,7 +98,10 @@ module.exports = class extends Generator {
           type: 'confirm',
           name: 'isPathCorrect',
           message: 'Do you want to create the files in ' + chalk.bold.yellow(this.config.get('componentsPath')) + '? ',
-          default: true
+          default: true,
+          when: function (response) {
+            return this.config.get('componentsPath');
+          }.bind(this)
         },
         {
           name: 'componentsPath',
