@@ -6,7 +6,7 @@
   /**
    * <%= compNamePretty %> Class.
    */
-  function <%= compName %>() {
+  var <%= compName %> = function() {
     /**
      * Function called when the component is available on screen
      */
