@@ -6,15 +6,13 @@
   /**
    * <%= compNamePretty %> Class.
    */
-  var <%= compName %> = function() {
-    /**
-     * Function called when the component is available on screen
-     */
-    function initialize () {
-      // Component functionality goes here.
-
-    }
-  };
+  var <%= compName %> = function() {};
+  /**
+   * Function called when the component is available on screen
+   */
+  <%= compName %>.prototype.initialize = function() {
+    // Component functionality goes here.
+  }
   // Create new instance of <%= compNamePretty %> Class.
   window['<%= componentsGroup %>']['<%= compName %>'] = new <%= compName %>();
 
