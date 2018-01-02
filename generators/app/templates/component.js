@@ -1,5 +1,5 @@
 // <%= compNamePretty %> component JS goes here
-(function() {
+(function($, window, document) {
   "use strict";
 
   window['<%= componentsGroup %>'] = window['<%= componentsGroup %>'] || {};
@@ -15,7 +15,12 @@
 
     }
   };
-
+  // Create new instance of <%= compNamePretty %> Class.
   window['<%= componentsGroup %>']['<%= compName %>'] = new <%= compName %>();
-  window['<%= componentsGroup %>']['<%= compName %>'].initialize();
-})();
+
+  $(function() {
+    // The DOM is ready!
+    // Initialize the functionality
+    window['<%= componentsGroup %>']['<%= compName %>'].initialize();
+  });
+})(window.jQuery, window, document);
