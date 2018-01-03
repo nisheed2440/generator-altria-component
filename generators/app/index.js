@@ -181,11 +181,27 @@ module.exports = class extends Generator {
       }
     } else if (_.isString(fileExtOrFolders)) {
       if (isExtension) {
-        this.fs.copyTpl(
-          this.templatePath('component.' + fileExtOrFolders),
-          this.destinationPath(path.join(this.config.get('componentsPath'), this.props.compNameFile, this.props.compNameFile + '.' + fileExtOrFolders)),
-          this.props
-        );
+        if( fileExtOrFolders === 'scss') {
+          this.fs.copyTpl(
+            this.templatePath('component.' + fileExtOrFolders),
+            this.destinationPath(path.join(this.config.get('componentsPath'), this.props.compNameFile, 'sass/index.' + fileExtOrFolders)),
+            this.props
+          );
+        }
+        else if( fileExtOrFolders === 'js') {
+          this.fs.copyTpl(
+            this.templatePath('component.' + fileExtOrFolders),
+            this.destinationPath(path.join(this.config.get('componentsPath'), this.props.compNameFile, '/index.' + fileExtOrFolders)),
+            this.props
+          );
+        }
+        else {
+          this.fs.copyTpl(
+            this.templatePath('component.' + fileExtOrFolders),
+            this.destinationPath(path.join(this.config.get('componentsPath'), this.props.compNameFile, this.props.compNameFile + '.' + fileExtOrFolders)),
+            this.props
+          );
+        }
       } else {
         this.fs.copyTpl(
           this.templatePath(fileExtOrFolders),
