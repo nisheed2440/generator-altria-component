@@ -6,19 +6,27 @@
   /**
    * <%= compNamePretty %> Class.
    */
-  var <%= compName %> = function() {};
-  /**
-   * Function called when the component is available on screen
-   */
-  <%= compName %>.prototype.initialize = function() {
-    // Component functionality goes here.
+  class <%= compNameClass %>{
+    /**
+     * Class constructor
+     */
+    constructor() {
+      // Any initialization of variables
+    }
+     /**
+     * Function called when the component is available on screen
+     */
+    initialize(){
+       // Component functionality goes here.
+    }
   }
+
   // Create new instance of <%= compNamePretty %> Class.
-  window['<%= componentsGroup %>']['<%= compName %>'] = new <%= compName %>();
+  window['<%= componentsGroup %>']['<%= compNameClass %>'] = new <%= compNameClass %>();
 
   $(function() {
     // The DOM is ready!
     // Initialize the functionality
-    window['<%= componentsGroup %>']['<%= compName %>'].initialize();
+    window['<%= componentsGroup %>']['<%= compNameClass %>'].initialize();
   });
 })(window.jQuery, window, document);

@@ -161,6 +161,7 @@ module.exports = class extends Generator {
     this.props.compName = _.camelCase(_.trim(this.props.compName));
     this.props.compNameFile = _.kebabCase(this.props.compName);
     this.props.compNamePretty = _.startCase(this.props.compName);
+    this.props.compNameClass = this.props.compNamePretty.split(' ').join('');
     return this.props;
   }
 
