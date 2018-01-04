@@ -136,7 +136,7 @@ module.exports = class extends Generator {
       this._updateYoConfigFile();
     } else {
       this._moveTemplates(['json', 'hbs', 'js', 'scss'], true);
-      this._moveTemplates(['context', 'README.md']);
+      this._moveTemplates(['README.md']);
       // Skip the spec file generation if flag is set
       if (!this.options['skip-test']) {
         this._moveTemplates(['spec.js'], true);
