@@ -39,11 +39,11 @@ module.exports = class extends Generator {
     if (this.options['init']) {
       // Ask for components path and sass common variables path.
       prompts = [{
-        type: 'input',
-        name: 'componentsGroup',
-        message: 'Component Group (Used by AEM): ',
-        default: 'ALTRIA'
-      },{
+          type: 'input',
+          name: 'componentsGroup',
+          message: 'Component Group (Used by AEM): ',
+          default: 'ALTRIA'
+        }, {
           type: 'input',
           name: 'componentsPath',
           message: 'Components path: ',
@@ -145,7 +145,7 @@ module.exports = class extends Generator {
         this._moveTemplates(['spec.js'], true);
       }
       // Move the resposive sass files to the component
-      if(this.props.isResponsive){
+      if (this.props.isResponsive) {
         this._moveTemplates(['sass']);
       }
     }
@@ -182,27 +182,11 @@ module.exports = class extends Generator {
       }
     } else if (_.isString(fileExtOrFolders)) {
       if (isExtension) {
-        if( fileExtOrFolders === 'scss') {
-          this.fs.copyTpl(
-            this.templatePath('component.' + fileExtOrFolders),
-            this.destinationPath(path.join(this.config.get('componentsPath'), this.props.compNameFile, 'sass/index.' + fileExtOrFolders)),
-            this.props
-          );
-        }
-        else if( fileExtOrFolders === 'js') {
-          this.fs.copyTpl(
-            this.templatePath('component.' + fileExtOrFolders),
-            this.destinationPath(path.join(this.config.get('componentsPath'), this.props.compNameFile, '/index.' + fileExtOrFolders)),
-            this.props
-          );
-        }
-        else {
-          this.fs.copyTpl(
-            this.templatePath('component.' + fileExtOrFolders),
-            this.destinationPath(path.join(this.config.get('componentsPath'), this.props.compNameFile, this.props.compNameFile + '.' + fileExtOrFolders)),
-            this.props
-          );
-        }
+        this.fs.copyTpl(
+          this.templatePath('component.' + fileExtOrFolders),
+          this.destinationPath(path.join(this.config.get('componentsPath'), this.props.compNameFile, this.props.compNameFile + '.' + fileExtOrFolders)),
+          this.props
+        );
       } else {
         this.fs.copyTpl(
           this.templatePath(fileExtOrFolders),
