@@ -98,7 +98,10 @@ module.exports = class extends Generator {
           type: 'confirm',
           name: 'isPathCorrect',
           message: 'Do you want to create the files in ' + chalk.bold.yellow(this.config.get('componentsPath')) + '? ',
-          default: true
+          default: true,
+          when: function (response) {
+            return this.config.get('componentsPath');
+          }.bind(this)
         },
         {
           name: 'componentsPath',
@@ -179,11 +182,27 @@ module.exports = class extends Generator {
       }
     } else if (_.isString(fileExtOrFolders)) {
       if (isExtension) {
-        this.fs.copyTpl(
-          this.templatePath('component.' + fileExtOrFolders),
-          this.destinationPath(path.join(this.config.get('componentsPath'), this.props.compNameFile, this.props.compNameFile + '.' + fileExtOrFolders)),
-          this.props
-        );
+        if( fileExtOrFolders === 'scss') {
+          this.fs.copyTpl(
+            this.templatePath('component.' + fileExtOrFolders),
+            this.destinationPath(path.join(this.config.get('componentsPath'), this.props.compNameFile, 'sass/index.' + fileExtOrFolders)),
+            this.props
+          );
+        }
+        else if( fileExtOrFolders === 'js') {
+          this.fs.copyTpl(
+            this.templatePath('component.' + fileExtOrFolders),
+            this.destinationPath(path.join(this.config.get('componentsPath'), this.props.compNameFile, '/index.' + fileExtOrFolders)),
+            this.props
+          );
+        }
+        else {
+          this.fs.copyTpl(
+            this.templatePath('component.' + fileExtOrFolders),
+            this.destinationPath(path.join(this.config.get('componentsPath'), this.props.compNameFile, this.props.compNameFile + '.' + fileExtOrFolders)),
+            this.props
+          );
+        }
       } else {
         this.fs.copyTpl(
           this.templatePath(fileExtOrFolders),
