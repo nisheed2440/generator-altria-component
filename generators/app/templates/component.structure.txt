@@ -6,9 +6,6 @@
 ###_tablet-l.scss       #The CSS that would be in effect in tablet landscape
 ###_tablet-p.scss       #The CSS that would be in effect in tablet portrait
 <% } %>
-##context
-###assets.context.xml         #The assets context used by AEM
-###component.context.xml      #The component context used by AEM
 ##<%= compNameFile%>.js       #The component javascript functionality
 <% if(!skipTest){ %>
 ##<%= compNameFile%>.spec.js  #The component javasctipt spec for unit tests
