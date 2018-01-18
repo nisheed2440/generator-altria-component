@@ -1,13 +1,13 @@
-// <%= compNamePretty %> spec file
-var expect = chai.expect;
+import <%= compName %> from './<%= compNameFile %>.component';
 
-describe('<%= compNamePretty %> Component', function () {
+describe('<%= compNamePretty %> Component', function() {
+    beforeEach(() => {});
 
-  beforeEach(function () {});
+    afterEach(() => {});
 
-  afterEach(function () {});
+    it('should initialize', () => {
+        <%= compName %>.initialize();
+        expect(true).to.equal(true);
+    });
 
-  it('should pass dummy test', function (done) {
-    expect(true).to.equal(true);
-  });
-})
+});

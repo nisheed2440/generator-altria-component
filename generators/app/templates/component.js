@@ -1,32 +1,19 @@
 // <%= compNamePretty %> component JS goes here
-(function($, window, document) {
-  "use strict";
-
-  window['<%= componentsGroup %>'] = window['<%= componentsGroup %>'] || {};
-  /**
-   * <%= compNamePretty %> Class.
-   */
-  class <%= compNameClass %>{
+import $ from 'jquery';
+/** <%= compNamePretty %> Class. */
+class <%= compNameClass %> {
     /**
-     * Class constructor
+     * Footer constructor
      */
     constructor() {
-      // Any initialization of variables
+        this.initialize();
     }
-     /**
-     * Function called when the component is available on screen
+    /**
+     * Initialization function
      */
-    initialize(){
-       // Component functionality goes here.
+    initialize() {
+        console.log($);
     }
-  }
+}
 
-  // Create new instance of <%= compNamePretty %> Class.
-  window['<%= componentsGroup %>']['<%= compNameClass %>'] = new <%= compNameClass %>();
-
-  $(function() {
-    // The DOM is ready!
-    // Initialize the functionality
-    window['<%= componentsGroup %>']['<%= compNameClass %>'].initialize();
-  });
-})(window.jQuery, window, document);
+export default new <%= compNameClass %>();
