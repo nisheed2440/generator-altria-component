@@ -1,16 +1,15 @@
 #<%= compNameFile%>
-<% if(isResponsive){ %>
+##partials              #The folder containing the component partials
 ##sass
+##variations            #The folder containing the component variations json files
 ###_default.scss        #The default mobile first CSS
 ###_desktop.scss        #The CSS that would be in effect in desktop
 ###_tablet-l.scss       #The CSS that would be in effect in tablet landscape
 ###_tablet-p.scss       #The CSS that would be in effect in tablet portrait
-<% } %>
-##<%= compNameFile%>.js       #The component javascript functionality
-<% if(!skipTest){ %>
-##<%= compNameFile%>.spec.js  #The component javasctipt spec for unit tests
-<% } %>
-##<%= compNameFile%>.hbs      #The component html template
-##<%= compNameFile%>.json     #The component data model
-##<%= compNameFile%>.scss     #The component SASS file
+##<%= compNameFile%>.component.js       #The component javascript functionality
+##<%= compNameFile%>.component.spec.js  #The component javasctipt spec for unit tests
+##<%= compNameFile%>.component.hbs      #The component html template
+##<%= compNameFile%>.component.json     #The component data model
+##<%= compNameFile%>.component.scss     #The component SASS file
 ##README.md     #Readme file
+##package.json  #The package file. Used for rollup config and future publishing of component

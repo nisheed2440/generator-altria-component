@@ -1,0 +1,26 @@
+{
+  "name": "<%= compNameFile %>",
+  "version": "1.0.0",
+  "description": "<%= compDesc %>",
+  "displayName": "<%= compNamePretty %>",
+  "main": "<%= compNameFile %>.component.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "rollup": {
+    "inputOptions": {
+      "external": [
+        "jquery"
+      ]
+    },
+    "outputOptions": {
+      "name": "<%= componentsGroup %>.<%= compNameClass %>",
+      "globals": {
+        "jquery": "$"
+      }
+    }
+  }
+}

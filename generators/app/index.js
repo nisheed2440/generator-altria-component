@@ -20,14 +20,6 @@ module.exports = class extends Generator {
       alias: 'i',
       default: false
     });
-
-    this.option('skip-test', {
-      description: 'Skip the creation of the component spec file.',
-      type: Boolean,
-      alias: 't',
-      default: false
-    });
-
   }
 
   prompting() {
@@ -41,7 +33,7 @@ module.exports = class extends Generator {
       prompts = [{
           type: 'input',
           name: 'componentsGroup',
-          message: 'Component Group (Used by AEM): ',
+          message: 'Component Group (Used by IIFE): ',
           default: 'ALTRIA'
         }, {
           type: 'input',
@@ -90,12 +82,6 @@ module.exports = class extends Generator {
         },
         {
           type: 'confirm',
-          name: 'isResponsive',
-          message: 'Is Component Responsive? ',
-          default: true
-        },
-        {
-          type: 'confirm',
           name: 'isPathCorrect',
           message: 'Do you want to create the files in ' + chalk.bold.yellow(this.config.get('componentsPath')) + '? ',
           default: true,
@@ -138,16 +124,8 @@ module.exports = class extends Generator {
     if (this.options['init']) {
       this._updateYoConfigFile();
     } else {
-      this._moveTemplates(['json', 'hbs', 'js', 'scss'], true);
-      this._moveTemplates(['README.md']);
-      // Skip the spec file generation if flag is set
-      if (!this.options['skip-test']) {
-        this._moveTemplates(['spec.js'], true);
-      }
-      // Move the resposive sass files to the component
-      if (this.props.isResponsive) {
-        this._moveTemplates(['sass']);
-      }
+      this._moveTemplates(['json', 'hbs', 'js', 'scss', 'spec.js'], true);
+      this._moveTemplates(['README.md', 'package.json', 'sass', 'partials' ,'variations']);
     }
   }
 
@@ -155,6 +133,7 @@ module.exports = class extends Generator {
 
   _updateYoConfigFile() {
     this.log(chalk.bold.blue('Saving `.yo-rc.json` file..'));
+    this.config.set('componentsGroup', this.props.componentsGroup);
     this.config.set('componentsPath', this.props.componentsPath);
     this.config.set('componentsSassPath', this.props.componentsSassPath);
     this.log(chalk.bold.green('Saved!'));
@@ -184,7 +163,7 @@ module.exports = class extends Generator {
       if (isExtension) {
         this.fs.copyTpl(
           this.templatePath('component.' + fileExtOrFolders),
-          this.destinationPath(path.join(this.config.get('componentsPath'), this.props.compNameFile, this.props.compNameFile + '.' + fileExtOrFolders)),
+          this.destinationPath(path.join(this.config.get('componentsPath'), this.props.compNameFile, this.props.compNameFile + '.component.' + fileExtOrFolders)),
           this.props
         );
       } else {

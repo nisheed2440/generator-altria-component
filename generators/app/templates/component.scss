@@ -1,16 +1,13 @@
 // <%= compNamePretty %> component scss imports and overides if any
-<% if(componentsSassPath){ %>
 @import "<%= componentsSassPath %>";
-<% } %>
-<% if( isResponsive ){ %>
-@import 'default';
+@import 'sass/default';
+
 @media (min-width: $screen-sm-min) {
-    @import 'tablet-p';
+    @import 'sass/tablet-p';
 }
 @media (min-width: $screen-md-min) {
-    @import 'tablet-l';
+    @import 'sass/tablet-l';
 }
 @media (min-width: $screen-lg-min) {
-    @import 'desktop';
+    @import 'sass/desktop';
 }
-<% } %>
