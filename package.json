@@ -2,11 +2,11 @@
   "name": "generator-altria-component",
   "version": "0.0.0",
   "description": "A component generator for Altria projects",
-  "homepage": "",
+  "homepage": "https://github.com/nisheed2440/generator-altria-component",
   "author": {
     "name": "SapientRazorfish",
     "email": "njagadish3@sapient.com",
-    "url": ""
+    "url": "https://github.com/nisheed2440/generator-altria-component"
   },
   "files": [
     "generators"
