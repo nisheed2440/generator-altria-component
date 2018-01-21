@@ -1,7 +1,7 @@
 #<%= compNameFile%>
 ##partials              #The folder containing the component partials
-##sass
 ##variations            #The folder containing the component variations json files
+##sass
 ###_default.scss        #The default mobile first CSS
 ###_desktop.scss        #The CSS that would be in effect in desktop
 ###_tablet-l.scss       #The CSS that would be in effect in tablet landscape

@@ -10,6 +10,9 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "variations": {
+    "default": "Default"
+  },
   "rollup": {
     "inputOptions": {
       "external": [

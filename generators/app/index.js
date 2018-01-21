@@ -124,7 +124,7 @@ module.exports = class extends Generator {
     if (this.options['init']) {
       this._updateYoConfigFile();
     } else {
-      this._moveTemplates(['json', 'hbs', 'js', 'scss', 'spec.js'], true);
+      this._moveTemplates(['hbs', 'js', 'scss', 'spec.js'], true);
       this._moveTemplates(['README.md', 'package.json', 'sass', 'partials' ,'variations']);
     }
   }
