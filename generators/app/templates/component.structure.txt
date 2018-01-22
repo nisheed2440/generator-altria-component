@@ -1,15 +1,15 @@
 #<%= compNameFile%>
 ##partials              #The folder containing the component partials
 ##variations            #The folder containing the component variations json files
-##sass
+##css
 ###_default.scss        #The default mobile first CSS
-###_desktop.scss        #The CSS that would be in effect in desktop
-###_tablet-l.scss       #The CSS that would be in effect in tablet landscape
-###_tablet-p.scss       #The CSS that would be in effect in tablet portrait
+###_large.scss          #The CSS that would effect large screen
+###_medium.scss         #The CSS that would effect medium screen
+###_small.scss          #The CSS that would effect small screen
 ##<%= compNameFile%>.component.js       #The component javascript functionality
 ##<%= compNameFile%>.component.spec.js  #The component javasctipt spec for unit tests
 ##<%= compNameFile%>.component.hbs      #The component html template
 ##<%= compNameFile%>.component.json     #The component data model
-##<%= compNameFile%>.component.scss     #The component SASS file
+##<%= compNameFile%>.component.css     #The component CSS file
 ##README.md     #Readme file
 ##package.json  #The package file. Used for rollup config and future publishing of component
