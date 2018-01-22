@@ -1,0 +1,7 @@
+/* <%= compNamePretty %> component scss imports and overides if any */
+@import "<%= componentsSassPath %>";
+/* Assuming that --small, --medium and --large are defined in common css file */
+@import 'css/_default.css';
+@import 'css/_small.css' (--small);
+@import 'css/_medium.css' (--medium);
+@import 'css/_large.css' (--large);

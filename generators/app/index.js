@@ -44,7 +44,7 @@ module.exports = class extends Generator {
         {
           type: 'input',
           name: 'componentsSassPath',
-          message: 'Common Sass variable path (Relative to components path): ',
+          message: 'Common CSS variable path (Relative to components path): ',
           default: '../sass/common.scss'
         }
       ];
@@ -124,8 +124,8 @@ module.exports = class extends Generator {
     if (this.options['init']) {
       this._updateYoConfigFile();
     } else {
-      this._moveTemplates(['hbs', 'js', 'scss', 'spec.js'], true);
-      this._moveTemplates(['README.md', 'package.json', 'sass', 'partials' ,'variations']);
+      this._moveTemplates(['hbs', 'js', 'css', 'spec.js'], true);
+      this._moveTemplates(['README.md', 'package.json', 'css', 'partials' ,'variations']);
     }
   }
 
